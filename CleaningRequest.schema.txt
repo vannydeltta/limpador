@@ -22,9 +22,17 @@ PROPERTIES:
 - scheduled_date (string): Data agendada (formato: date)
 - scheduled_time (string): Hora agendada
 - notes (string): Notas adicionais do cliente
+- rating (number): Avaliação de 1-5 estrelas
+- review (string): Comentário da avaliação
+- payment_status (string): enum [pending, paid, refunded], default: pending
+- payment_method (string): enum [pix, credit_card, debit_card, cash]
+- automatic_payment_triggered (boolean): Se o pagamento automático já foi disparado, default: false
+- cancellation_date (string): Data de cancelamento (formato: date-time)
 
 REQUIRED FIELDS:
 - client_email
 - service_type
 - hours
 - address
+- scheduled_date
+- scheduled_time

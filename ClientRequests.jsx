@@ -59,6 +59,11 @@ export default function ClientRequests() {
     mutationFn: async ({ id, rating, review }) => {
       await base44.entities.CleaningRequest.update(id, { rating, review });
       
+      // Get reward settings
+      const settingsList = await base44.entities.PaymentSettings.list();
+      const settings = settingsList[0] || {};
+      const rewardAmount = settings.reward_bonus || 50;
+      
       // Update cleaner stats
       const request = requests.find(r => r.id === id);
       if (request?.cleaner_email) {
@@ -77,8 +82,8 @@ export default function ClientRequests() {
             await base44.entities.Reward.create({
               cleaner_email: request.cleaner_email,
               type: 'consecutive_five_stars',
-              amount: 100,
-              description: '10 avaliações 5 estrelas seguidas!',
+              amount: rewardAmount,
+              description: `10 avaliações 5 estrelas seguidas! Bônus de R$ ${rewardAmount}`,
               status: 'pending'
             });
             rewardsEarned += 1;

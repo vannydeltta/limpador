@@ -108,32 +108,38 @@ export default function BookCleaning() {
     setLoading(true);
     const prices = calculatePrices();
 
-    await base44.entities.CleaningRequest.create({
-      client_email: user.email,
-      cleaner_email: selectedCleaner?.user_email || undefined,
-      status: 'pending',
-      service_type: serviceType,
-      frequency,
-      region,
-      city,
-      number_of_cleaners: numberOfCleaners,
-      hours,
-      include_products: includeProducts,
-      base_price: prices.basePrice * numberOfCleaners,
-      agency_fee: prices.agencyFee * numberOfCleaners,
-      total_price: prices.totalPrice * numberOfCleaners,
-      cleaner_earnings: prices.cleanerEarnings,
-      address,
-      address_complement: addressComplement,
-      scheduled_date: format(selectedDate, 'yyyy-MM-dd'),
-      scheduled_time: selectedTime,
-      notes,
-      payment_method: paymentMethod,
-      payment_status: 'pending'
-    });
+    try {
+      await base44.entities.CleaningRequest.create({
+        client_email: user.email,
+        cleaner_email: selectedCleaner?.user_email || undefined,
+        status: 'pending',
+        service_type: serviceType,
+        frequency,
+        region,
+        city,
+        number_of_cleaners: numberOfCleaners,
+        hours,
+        include_products: includeProducts,
+        base_price: prices.basePrice * numberOfCleaners,
+        agency_fee: prices.agencyFee * numberOfCleaners,
+        total_price: prices.totalPrice * numberOfCleaners,
+        cleaner_earnings: prices.cleanerEarnings,
+        address,
+        address_complement: addressComplement,
+        scheduled_date: selectedDate ? format(selectedDate, 'yyyy-MM-dd') : null,
+        scheduled_time: selectedTime,
+        notes,
+        payment_method: paymentMethod,
+        payment_status: 'pending'
+      });
 
-    setLoading(false);
-    navigate(createPageUrl('ClientRequests'));
+      setLoading(false);
+      navigate(createPageUrl('ClientRequests'));
+    } catch (e) {
+      setLoading(false);
+      console.error('Erro ao criar pedido:', e);
+    }
+  };
   };
 
   const canProceed = () => {

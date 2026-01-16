@@ -69,7 +69,7 @@ export default function AdminSettings() {
 
   const saveMutation = useMutation({
     mutationFn: async () => {
-      const dataToSave = { ...settings, reward_bonus: 100 };
+      const dataToSave = { ...settings };
       if (existingSettings) {
         await base44.entities.PaymentSettings.update(existingSettings.id, dataToSave);
       } else {
@@ -222,7 +222,7 @@ export default function AdminSettings() {
             <div className="p-4 bg-purple-50 dark:bg-purple-950/30 rounded-xl">
               <p className="text-sm text-purple-700 dark:text-purple-300">
                 💡 Faxineiras que receberem {settings.reward_threshold} avaliações 5 estrelas seguidas 
-                ganharão um bônus fixo de R$ 100,00.
+                ganharão um bônus fixo de R$ {settings.reward_bonus?.toFixed(2) || '50,00'}.
               </p>
             </div>
           </CardContent>
