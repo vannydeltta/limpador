@@ -1,0 +1,30 @@
+SCHEMA: CleaningRequest
+TYPE: object
+
+PROPERTIES:
+- client_email (string): Email do contratante
+- cleaner_email (string): Email da faxineira atribuída
+- status (string): enum [pending, accepted, in_progress, completed, cancelled], default: pending
+- service_type (string): enum [padrao, com_organizacao, pos_obra], default: padrao
+- frequency (string): enum [unica, semanal, mensal], default: unica
+- region (string): Região do serviço no RS
+- city (string): Cidade do serviço
+- number_of_cleaners (number): Quantidade de faxineiras solicitadas, default: 1
+- hours (number): Quantidade de horas (1-8)
+- include_products (boolean): Se inclui produtos de limpeza, default: false
+- base_price (number): Preço base do serviço
+- agency_fee (number): Taxa da agência (40%)
+- total_price (number): Preço total com taxa
+- cleaner_earnings (number): Valor que a faxineira recebe
+- fine_amount (number): Valor de multas aplicadas, default: 0
+- address (string): Endereço do local a limpar
+- address_complement (string): Complemento do endereço
+- scheduled_date (string): Data agendada (formato: date)
+- scheduled_time (string): Hora agendada
+- notes (string): Notas adicionais do cliente
+
+REQUIRED FIELDS:
+- client_email
+- service_type
+- hours
+- address

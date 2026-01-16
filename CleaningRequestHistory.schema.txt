@@ -1,0 +1,15 @@
+SCHEMA: CleaningRequestHistory
+TYPE: object
+
+PROPERTIES:
+- request_id (string): ID do pedido de limpeza original
+- snapshot (object): Snapshot completo do estado do pedido naquele momento
+- change_type (string): enum [created, status_updated, payment_updated, cleaner_assigned, completed, cancelled]
+  - Tipo de mudança que gerou esta versão
+- changed_by (string): Email do usuário que fez a alteração
+- notes (string): Notas sobre a mudança
+
+REQUIRED FIELDS:
+- request_id
+- snapshot
+- change_type

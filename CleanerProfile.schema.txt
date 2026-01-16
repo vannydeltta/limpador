@@ -1,0 +1,27 @@
+SCHEMA: CleanerProfile
+TYPE: object
+
+PROPERTIES:
+- user_email (string): Email único do usuário
+- full_name (string): Nome completo da faxineira
+- phone (string): Telefone de contato
+- cpf (string): CPF da faxineira
+- address (string): Endereço residencial
+- city (string): Cidade de residência
+- bio (string): Biografia/descrição pessoal
+- photo_url (string): URL da foto de perfil
+- available (boolean): Status de disponibilidade, default: true
+- verified (boolean): Se foi verificada, default: false
+- total_cleanings (number): Total de limpezas realizadas, default: 0
+- average_rating (number): Avaliação média, default: 0
+- consecutive_five_stars (number): Limpezas com 5 estrelas consecutivas, default: 0
+- rewards_earned (number): Recompensas ganhas, default: 0
+- total_earnings (number): Total de ganhos, default: 0
+- available_balance (number): Saldo disponível para saque, default: 0
+- pix_key (string): Chave PIX para pagamentos
+- bank_info (string): Informações bancárias
+
+REQUIRED FIELDS:
+- user_email
+- full_name
+- phone

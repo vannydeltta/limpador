@@ -1,0 +1,18 @@
+SCHEMA: AutomaticPayment
+TYPE: object
+
+PROPERTIES:
+- request_id (string): ID do pedido
+- cleaner_email (string): Email da faxineira
+- amount (number): Valor a ser pago para a faxineira
+- pix_key (string): Chave PIX da faxineira
+- status (string): enum [pending, processing, completed, failed], default: pending
+- payment_proof_url (string): URL do comprovante
+- payment_date (string): Data e hora do pagamento (formato: date-time)
+- error_message (string): Mensagem de erro, se houver
+
+REQUIRED FIELDS:
+- request_id
+- cleaner_email
+- amount
+- pix_key

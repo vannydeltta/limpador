@@ -1,0 +1,15 @@
+SCHEMA: CleanerAvailability
+TYPE: object
+
+PROPERTIES:
+- cleaner_email (string): Email da faxineira
+- default_availability (array): Disponibilidade padrão mensal
+  - Cada item contém:
+    - day_of_week (number): 0=Domingo, 6=Sábado
+    - time_slots (array de strings): Horários disponíveis neste dia
+- blocked_dates (array de strings): Datas específicas bloqueadas (formato: date)
+- month_year (string): Mês/ano da agenda (formato: YYYY-MM)
+
+REQUIRED FIELDS:
+- cleaner_email
+- month_year

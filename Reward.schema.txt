@@ -1,0 +1,14 @@
+SCHEMA: Reward
+TYPE: object
+
+PROPERTIES:
+- cleaner_email (string): Email da faxineira
+- type (string): enum [consecutive_five_stars, milestone, bonus] - Tipo de recompensa
+- amount (number): Valor da recompensa
+- status (string): enum [pending, paid], default: pending
+- description (string): Descrição da recompensa
+
+REQUIRED FIELDS:
+- cleaner_email
+- type
+- amount

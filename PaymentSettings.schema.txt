@@ -1,0 +1,16 @@
+SCHEMA: PaymentSettings
+TYPE: object
+
+PROPERTIES:
+- pix_key (string): Chave PIX
+- pix_key_type (string): enum [cpf, cnpj, email, phone, random] - Tipo da chave PIX
+- bank_name (string): Nome do banco
+- agency_fee_percentage (number): Percentual de taxa da agência, default: 40
+- first_hour_price (number): Preço da primeira hora, default: 40
+- additional_hour_price (number): Preço de hora adicional, default: 20
+- products_price (number): Preço dos produtos de limpeza, default: 30
+- reward_bonus (number): Bônus de recompensa, default: 50
+- reward_threshold (number): Limite para recompensa, default: 10
+
+REQUIRED FIELDS:
+- Nenhum campo é obrigatório

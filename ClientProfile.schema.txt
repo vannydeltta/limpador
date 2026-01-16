@@ -1,0 +1,21 @@
+SCHEMA: ClientProfile
+TYPE: object
+
+PROPERTIES:
+- user_email (string): Email único do usuário
+- full_name (string): Nome completo do cliente
+- phone (string): Telefone de contato
+- cpf (string): CPF do cliente
+- addresses (array): Lista de endereços salvos
+  - Cada item contém:
+    - label (string): Identificação do endereço (ex: "Casa", "Trabalho")
+    - address (string): Endereço completo
+    - complement (string): Complemento do endereço
+    - city (string): Cidade
+- total_bookings (number): Total de reservas realizadas, default: 0
+- favorite_cleaners (array de strings): Emails das faxineiras favoritas
+
+REQUIRED FIELDS:
+- user_email
+- full_name
+- phone

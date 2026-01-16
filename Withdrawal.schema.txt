@@ -1,0 +1,20 @@
+SCHEMA: Withdrawal
+TYPE: object
+
+PROPERTIES:
+- cleaner_email (string): Email da faxineira
+- amount (number): Valor solicitado
+- status (string): enum [pending, approved, paid, rejected], default: pending
+- pix_key (string): Chave PIX para pagamento
+- pix_key_type (string): enum [cpf, cnpj, email, phone, random] - Tipo de chave PIX
+- recipient_name (string): Nome completo do destinatário
+- recipient_address (string): Endereço completo do destinatário para comprovante
+- request_date (string): Data da solicitação (formato: date-time)
+- processed_date (string): Data de processamento (formato: date-time)
+- payment_proof_url (string): URL do comprovante de pagamento
+- notes (string): Notas adicionais
+
+REQUIRED FIELDS:
+- cleaner_email
+- amount
+- pix_key

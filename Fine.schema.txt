@@ -1,0 +1,17 @@
+SCHEMA: Fine
+TYPE: object
+
+PROPERTIES:
+- request_id (string): ID do pedido relacionado
+- type (string): enum [cleaner_cancellation, client_mandatory] - Tipo de multa
+- amount (number): Valor da multa
+- reason (string): Motivo da multa
+- affected_email (string): Email de quem recebeu a multa
+- status (string): enum [pending, paid, waived], default: pending
+- payment_status (string): enum [pending, paid], default: pending
+
+REQUIRED FIELDS:
+- request_id
+- type
+- amount
+- affected_email

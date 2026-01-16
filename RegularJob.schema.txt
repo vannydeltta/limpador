@@ -1,0 +1,24 @@
+SCHEMA: RegularJob
+TYPE: object
+
+PROPERTIES:
+- client_email (string): Email do contratante
+- cleaner_email (string): Email da faxineira atribuída
+- service_type (string): enum [padrao, com_organizacao, pos_obra], default: padrao
+- frequency (string): enum [semanal, quinzenal, mensal] - Frequência do serviço regular
+- day_of_week (number): Dia da semana (0=Domingo, 6=Sábado)
+- time (string): Horário do serviço (formato: HH:MM)
+- hours (number): Quantidade de horas
+- include_products (boolean): Se inclui produtos de limpeza, default: false
+- address (string): Endereço do local a limpar
+- address_complement (string): Complemento do endereço
+- active (boolean): Se o serviço está ativo, default: true
+- last_generated_date (string): Última data que foi gerado um pedido automático (formato: date)
+
+REQUIRED FIELDS:
+- client_email
+- frequency
+- day_of_week
+- time
+- hours
+- address
