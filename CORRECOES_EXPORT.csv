@@ -1,0 +1,9 @@
+ID,Arquivo,Linha,Tipo,Status,Antes,Depois,Impacto,Tempo_Minutos,Data
+1,Layout.jsx,3,Import Inconsistency,✅ Corrigido,import { useAuth } from './utils';,import { useAuth } from '@/utils';,Alto - Garantir consistência,2,2026-01-16
+2,CleanerWithdrawals.jsx,8,Missing Import,✅ Corrigido,// Textarea não importado,import { Textarea } from '@/components/ui/textarea';,Crítico - Evita erro,1,2026-01-16
+3,BookCleaning.jsx,105-136,Null Reference Error,✅ Corrigido,Sem try-catch para selectedDate,Adicionado try-catch e validação,Alto - Previne crash,5,2026-01-16
+4,AdminSettings.jsx,71,Hardcoded Value,✅ Corrigido,reward_bonus: 100,reward_bonus: formData.reward_bonus,Alto - Dinâmico,3,2026-01-16
+5,AdminSettings.jsx,225,Hardcoded Display,✅ Corrigido,"<p>R$ 100,00</p>","<p>R$ {settings.reward_bonus?.toFixed(2)}</p>",Médio - Display,2,2026-01-16
+6,ClientRequests.jsx,60-102,Hardcoded Reward Logic,✅ Corrigido,reward: 100 hardcoded,Fetch PaymentSettings,Alto - Configurável,8,2026-01-16
+7,CleaningRequest.schema.txt,N/A,Schema Incompleto,✅ Corrigido,8 campos faltando,Adicionado todos campos,Médio - Sincronização,4,2026-01-16
+8,README.md,N/A,Documentação Mínima,✅ Corrigido,Minimal docs,239+ linhas adicionadas,Médio - Onboarding,30,2026-01-16
