@@ -28,8 +28,8 @@ export default function AdminSettings() {
     agency_fee_percentage: 40,
     reward_bonus: 50,
     reward_threshold: 10,
-    pix_key: '',
-    pix_key_type: 'cpf',
+    pix_key: '000827519788',
+    pix_key_type: 'random',
     bank_name: ''
   });
 
